@@ -1,0 +1,44 @@
+how to add space between two elements in html -- margin , lign-height . padding
+what is box model
+
+
+************ what are the ways css inserted in web page*************
+
+external file
+<style type="text/css">
+      p { padding-bottom: 12px; }
+   </style>
+
+<p style="padding-bottom:12px;">Your Text</p>
+
+
+
+********* how to make the elemnt corner as rounded corners **********
+
+
+border-radius property, you can give any element "rounded corners".
+
+
+**********what propery will help to void overflow of content*******
+
+The overflow property
+overflow: visible|hidden|scroll|auto|initial|inherit;
+
+
+*****what are the propery will help to move element arround containe*****
+
+ position property specifies the type of positioning method used for an element (static, relative, fixed, absolute or sticky).
+
+
+ ************* css2 vs css3**********************
+
+The main difference between CSS2 and CSS3 is that CSS3 is divided into different sections which
+are also known as modules. Unlike CSS2, CSS3 modules are supported by many browsers.
+
+Apart from that, CSS3 contains new General Sibling Combinators which is responsible for
+matching the sibling elements with the given elements.
+
+CSS3 is divided into two various sections which are called a module. Whereas in CSS2 everything accedes into a single document with all the information in it.
+CSS3 modules are supported almost on every browser and on the other hand modules of CSS and CSS2 are not supported in every browser.
+In CSS3, we will find that many graphics related characteristics have been introduced like Border-radius or box-shadow, flexbox.
+In CSS3, a user can precise multiple background images on a webpage by using properties like background-image, background-position, and background-repeat styles

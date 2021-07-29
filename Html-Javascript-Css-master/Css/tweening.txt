@@ -1,0 +1,3 @@
+t is the process of generating intermediate frames between two images.
+It gives the impression that the first image has smoothly evolved into the second one.
+It is an important method used in all types of animations.

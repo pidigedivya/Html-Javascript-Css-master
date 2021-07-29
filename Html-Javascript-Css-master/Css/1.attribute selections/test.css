@@ -1,0 +1,19 @@
+p{
+    color: black;
+}
+
+input[type="text"]{
+    background-color: red;
+}
+
+input[type^="b"]{
+    background-color: yellow;
+}
+
+input[type$="k"]{
+    background-color: blue;
+}
+
+input[type*="mail"]{
+    background-color: green;
+}

@@ -1,0 +1,13 @@
+background: #ffffff url("img_tree.png") no-repeat right top;
+
+When using the shorthand property the order of the property values is:
+
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+
+or we can use saparately if we want just like
+
+background-color: red;

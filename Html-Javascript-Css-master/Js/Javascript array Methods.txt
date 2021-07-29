@@ -1,0 +1,65 @@
+arr.push(...items) – adds items to the end,
+arr.pop() – extracts an item from the end,
+arr.shift() – extracts an item from the beginning,
+arr.unshift(...items) – adds items to the beginning.
+
+splice:It used to insert, remove and replace elements. and Returns the array of removed elements
+arr.splice(start[, deleteCount, elem1, ..., elemN])
+It modifies arr starting from the index start: removes deleteCount elements and 
+then inserts elem1, ..., elemN at their place. Returns the array of removed elements.
+
+slice:used to get subset of array based on start and end index
+arr.slice([start], [end])
+It returns a new array copying to it all items from index start to end (not including end).
+Both start and end can be negative, in that case position from array end is assumed.
+We can also call it without arguments: arr.slice() creates a copy of arr.
+
+concat:The method arr.concat creates a new array that includes values from other arrays and additional items.
+
+foreach:The arr.forEach method allows to run a function for every element of the array.
+
+Searching in array:
+arr.indexOf(item, from) – looks for item starting from index from, and returns the index where it was found, otherwise -1.
+arr.lastIndexOf(item, from) – same, but looks for from right to left.
+arr.includes(item, from) – looks for item starting from index from, returns true if found.
+
+find and findIndex:
+Imagine we have an array of objects. How do we find an object with the specific condition?
+Here the arr.find(fn) method comes in handy.
+If it returns true, the search is stopped, the item is returned. If nothing found, undefined is returned.
+let user = users.find(item => item.id == 1);
+The arr.findIndex method is essentially the same, but it returns the index where the element was found instead of the element itself and -1 is returned when nothing is found.
+
+
+filter:filter returns an array of all matching elements:
+The find method looks for a single (first) element that makes the function return true
+If there may be many, we can use arr.filter(fn).
+The syntax is similar to find, but filter returns an array of all matching elements:
+let someUsers = users.filter(item => item.id < 3);
+
+map:
+The arr.map method is one of the most useful and often used.
+It calls the function for each element of the array and returns the array of results.
+When we need to iterate and return the data for each element – we can use map.
+
+
+//sort the array
+cars.sort((a, b)=>{return a - b});
+
+//reverese the elements in array
+cars.reverse();
+
+split and join: 
+spilt:It splits the string into an array by the given delimiter delim.
+join:The call arr.join(glue) does the reverse to split. It creates a string of arr items joined by glue between them.
+
+let names = 'Bilbo, Gandalf, Nazgul';
+let arr = names.split(', ');    //['Bilbo', 'Gandalf', 'Nazgul'];
+let str = arr.join(';');        //Bilbo;Gandalf;Nazgul
+
+When we need to iterate over an array – we can use forEach, for or for..of.
+When we need to iterate and return the data for each element – we can use map.
+
+
+
+

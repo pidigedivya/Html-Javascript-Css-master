@@ -1,0 +1,13 @@
+font: italic small-caps bold 12px/30px Georgia, serif;
+
+When using the shorthand property the order of the property values is:
+
+font-style
+font-variant
+font-weight
+font-size/line-height
+font-family
+
+or we can use saparately if we want just like
+
+font-style : italic;

@@ -1,0 +1,1114 @@
+﻿Javascript in scripting langulage used to develop dynamic web applications
+Netscape is the software company who developed JavaScript.
+JavaScript is a client-side as well as server side scripting language
+
+//commnet can be write like this in js 
+/*comment multiline  * /
+
+//to get/set data for refrence of html elemnt by id class, tag
+//get
+document.getElementsById("example");
+document.getElementsByClassName("example");
+document.getElementsByName("fname");
+document.getElementsByTagName("LI");
+
+//set
+document.getElementById("demo").innerHTML = "<br>Hello JavaScript";
+document.getElementsByClassName("demo").style.display = "none";
+document.getElementById("demo").innerText = "text";
+
+JavaScript identifiers (names) must begin with:
+1. A letter (A-Z or a-z)
+2. A dollar sign ($)
+3. Or an underscore (_)
+
+
+
+***************** variabls (var , let , const ) ******************
+
+var cust="a" , const cust=5 , let cust=false;
+
+A var variable can be redeclared and updated.and scope is within funtion scope
+A let variable be be updated but not redeclared.and scope is within block  scoped
+A const value not changable, value must assigned when decalred, it’s block-scoped,
+
+Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+Global variables live until the page is discarded, like when you navigate to another page or close the window.
+Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished.
+
+
+let points = 50;
+let winner = false;
+if(points > 40) {
+  let winner = true;
+}
+console.log(winner);      // false
+
+var points = 50;
+var winner = false;
+if(points > 40) {
+  var winner = true;
+}
+console.log(winner);      // true
+
+
+************************** scopes and scope chaining ************************
+
+There are three types of scopes in JS:
+
+Global Scope : 
+Variables or functions declared in the global namespace have global scope
+
+Local or Function Scope :
+Any variables or functions declared inside a function have local/function scope
+
+Block Scope:
+Block scope is related to the variables declared using let and const. 
+Variables declared with var do not have block scope.
+Block scope tells us that any variable declared inside a block { }, 
+can be accessed only inside that block and cannot be accessed outside of it.
+
+scope chaining example:
+var y = 24;
+
+function favFunction(){
+  var x = 667;
+  var anotherFavFunction = function(){
+    console.log(x); // Does not find x inside anotherFavFunction, so looks for variable inside favFunction, outputs 667
+  }
+
+  var yetAnotherFavFunction = function(){
+    console.log(y); // Does not find y inside yetAnotherFavFunction, so looks for variable inside favFunction and does not find it, so looks for variable in global scope, finds it and outputs 24
+  }
+
+  anotherFavFunction();
+  yetAnotherFavFunction();
+}
+
+
+favFunction();
+
+As you can see in the code above, if the javascript engine does not find the variable in local scope,
+ it tries to check for the variable in the outer scope. If the variable does not exist 
+ in the outer scope, it tries to find the variable in the global scope.
+
+If the variable is not found in the global space as well, reference error is thrown.
+
+
+************************** basics ************************
+
+var carName;		         	//undefined
+
+var carName = "Volvo";		// redeclaring posible for var 
+var carName;			        // it can't loose its value o/p "Volvo"
+
+var x = "5" + 2 + 3;		  //523
+
+var x = "5" + (2 + 3);    //55
+
+var x = "5" + 2 * 3;      //56
+
+var x = 2 + 3 + "5";		  //55
+
+var x = (2 + 3) + "5";		//55
+
+var x = "100";
+var y = "10";
+var z = x - y;			      //90
+
+
+******************** NaN *****************************
+
+NaN property represents “Not-a-Number” value. It indicates a value which is not a legal number.
+isNaN() function converts the given value to a Number type, and then equates to NaN.
+
+isNaN("Hello")    // Returns true
+isNaN(345)        // Returns false
+isNaN('1')        // Returns false, since '1' is converted to Number type which results in 0 ( a number) 
+isNaN(true)       // Returns false, since true converted to Number type results in 1 ( a number)
+isNaN(false)      // Returns false
+isNaN(undefined)  // Returns true
+
+var x = 100 / "Apple";    // null
+isNaN(x); 			          // True
+
+var x = NaN;
+var y = "5";
+var z = x + y;			     //NaN5
+isNaN(z);                //true
+
+var x = NaN;
+var y = 5;
+var z = x + y;           //null
+isNaN(z);                //true
+
+var x = 10;			         //assignment operators
+x += 5;
+
+********************** == vs ==== *******************
+
+Both are comparison operators. The difference between both the operators is that,“==” is used 
+to compare values whereas, “ === “ is used to compare both value and types.
+
+= is used for assigning values to a variable in JavaScript.
+== is used for comparison between two variables irrespective of the datatype of variable.
+=== is used for comparision between two variables and check datatype and compare two values.
+
+
+**********************  Typeof ***********************
+
+typeof null  			              // Returns object.
+typeof undefined		            // Returns undefined.
+typeof "John"                 	// Returns "string"
+typeof 3.14                   	// Returns "number"
+typeof false                  	// Returns "boolean"
+
+typeof [1,2,3,4]              	// Returns "object"
+typeof {name:'John', age:34}  	// Returns "object"
+typeof function () {}         	// Returns "function"
+
+typeof myCar                  	// Returns "undefined" 
+typeof new Date()             	// Returns "object"
+typeof NaN                    	// Returns "number"
+
+
+
+************************* null vs undefined : *********************
+
+undefines:It means a variable declared, but no value has been assigned a value.
+null: Null as an assignment value, So you can assign the value null to any variable.
+undefined and null are equal in value but different in data type
+type of null is an object but the type of undefined is undefined.
+
+
+************************** data types *******************
+
+premitives data types: 
+string
+number
+boolean
+undefined
+null
+
+objects:
+array
+object
+function
+
+//don't create like this 
+var y = new Number(123);
+var y = new String("John");
+var x = new Array("Saab", "Volvo", "BMW");
+var d = new Date();
+var y = new Boolean(false);
+
+
+*********************   Number Methods: ***********************
+
+toString()			//returns a number as a string.
+valueOf() 			//returns a number as a number.
+toFixed(2)			//returns a string, with the number written with a specified number of decimals:
+toPrecision(2) 	//returns a string, with a number written with a specified length:
+
+Converting Variables to Numbers:
+
+Number()			          //Returns a number, converted from its argument.spacess not allowed
+parseFloat()		       //Parses its argument and returns a floating point number, spacess allowed and first no taken
+parseInt()		         //Parses its argument and returns an integer,spacess allowed and first no taken
+parseInt("10.33");     // returns 10
+parseInt("10.4 abc");  // returns 10
+
+
+
+
+*****************************  object:   **********************************
+
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+//read data from objct
+person.firstname	o/p- John
+person["firstname"]	o/p- John
+
+//add extra properties to object
+person["country"]="india";
+person.city="hyd";
+
+//looping object or to diaply keys and values in object
+for (var key of Object.keys(person)) {
+    console.log(key + " -> " + person[key])    o/p- firstname -> John
+}
+
+//looping object or to diaply keys and values in object
+for (let key in person) {
+  console.log(key);          //object kyes
+  console.log(person[key]);  //object values
+}
+
+//looping object or to diaply keys and values in object
+Object.keys(person).forEach(function(key) {
+    console.log(key, person[key]);
+});
+
+//looping object or to diaply keys and values in object
+for (const [key, value] of Object.entries(person)) {
+    console.log(key, value);
+}
+
+//check key exist in object or not 
+if (person.hasOwnProperty("firstname"))
+
+//delete perticular key and value from object
+delete person.age;
+
+//create empty object
+var person={};
+
+//clear object
+person=null;
+
+//to get length of object
+var size = Object.keys(person).length;
+
+
+
+
+************************* Array:  *****************************
+
+var cars = ["Saab", "Volvo", "BMW"];   //good way
+or
+var cars = new Array("Saab", "Volvo", "BMW"); //bad way
+or
+var cars = [{car1:"Saab"}];   //array of objects
+
+//read data from array using index
+cars[0]			o/p saab
+
+//add extra value in array at end of array
+cars.push("walk")
+
+//remove last element in array
+cars.pop();   
+
+//removes an item from the beginning,
+cars.shift()  
+
+//adds element in array from the beginning,
+cars.unshift("walk"); 
+
+//delete using inex
+delete cars[0];
+
+//update value of first index in array 
+cars[0]	= 3;
+
+//get length/size of array
+cars.length		o/p 3
+
+//create emty array
+cars=[]
+
+//check it is array or not
+Array.isArray(cars);	o/p array
+or
+typeof cars  
+
+
+
+*************************** array Methods:********************
+
+foreach():use if you want to loop only, is should not return 
+
+var fruits = ["apple", "orange", "cherry"];
+
+fruits.forEach((value, index, array)=>{
+console.log(value)
+});
+
+map(): creates a new array with updated values but can not change original values, use if you want to get new array with updated values,
+
+var array= cars.map((value, index, array)=>{
+		    return value/10;
+		});
+
+
+every(): use if you want to check, all array values passed condition  then return ture else false
+
+var numbers1 = [45, 4, 9, 16, 25];
+var ispassed= numbers1.every((value, index, array)=>{
+		   return value>18;				o/p false
+		});
+
+
+some(): use if you want to check, some of array values passed condition then return ture else false
+
+var numbers1 = [45, 4, 9, 16, 25];
+var ispassed=numbers1.some((value, index, array)=>{
+		   return value>18;				o/p true
+		});
+
+
+indexOf(): when we want to find the index of the first occurrence of a specific value in an array
+
+var a = numbers1.indexOf(16);					o/p 3
+arr.lastIndexOf(item, from) – same, but looks for from right to left.
+arr.includes(item, from) – looks for item starting from index from, returns true if found.
+
+
+find(): method returns the value of the first occurrence of a specific value in an array that passes a said condition..
+
+var numbers1 = [45, 4, 9, 16, 25];
+var ispassed=numbers1.find((value, index, array)=>{
+		   return value>18;				o/p 45
+		});
+
+findIndex(): method returns the index of the first occurrence of a specific value in an array that passes a said condition..
+
+var numbers1 = [45, 4, 9, 16, 25];
+var ispassed=numbers1.findIndex((total,value, index, array)=>{
+		   return value>18;				o/p 0
+		});
+
+
+filter(): creates a new array with filtering data but can not change original values,use if you want to get new array with filter,
+
+var array= cars.filter((value, index, array)=>{
+		    return value=="walk";
+		});
+
+splice(): method can be used to add new items to an array at specified postions:
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];	//adding at 2nd position and 0 remval
+fruits.splice(2, 0, "Lemon", "Kiwi");			o/p Banana,Orange,Lemon,Kiwi,Apple,Mango
+fruits.splice(0, 1);					//remove at position 0 , with 1 remove element
+							o/p:Orange,Lemon,Kiwi,Apple,Mango
+
+slice(): method slices out a piece of an array into a new array. 
+
+var fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];	//1 is start index, 3 is last index but not include last one
+var citrus = fruits.slice(1,3);					o/p 1)Banana,Orange,Lemon,Apple,Mango      2) Orange,Lemon
+var citrus = fruits.slice(1);				  	o/p 1)Banana,Orange,Lemon,Apple,Mango      2) Orange,Lemon,Apple,Mango
+
+
+concat(): method creates a new array by merging (concatenating) existing arrays:
+
+var myGirls = ["Cecilie"];
+var myBoys = ["Emil"];
+var myChildren = myGirls.concat(myBoys);   		o/p Cecilie,emil
+
+reduce(): use if you want to sum all array values ex: [1,2,3] if you want sum 6 then use reduce.
+
+var numbers1 = [45, 4, 9, 16, 25];
+var total= numbers1.reduce((total,value, index, array)=>{
+		   return total + value;
+		});
+The method arr.reduceRight does the same, but goes from right to left.
+
+
+toString(): convert array to comma saparated string.
+join() method also joins all array elements into a string.
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var result = fruits.toString();
+var result = fruits.join(" * ");
+
+//sort the array
+cars.sort((a, b)=>{return a - b});
+
+//reverese the elements in array
+cars.reverse();
+
+
+
+********************* Different Kinds of Loops: ********************
+
+JavaScript supports different kinds of loops:
+foreach - loop arrays values                            
+for - loops through a block of code a number of times   
+for/in - loops through the properties of an object      
+for/of - loops through the values of an iterable object 
+while - loops through a block of code while a specified condition is true
+do/while - also loops through a block of code while a specified condition is true
+
+
+examples:
+let list = [4, 5, 6];
+
+list.forEach((value, index, array)=>{
+console.log(value)
+});
+
+for (let i in list) {
+   console.log(i); // "0", "1", "2",
+}
+
+for (let i of list) {
+   console.log(i); // "4", "5", "6"
+}
+
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+for (var key of Object.keys(person)) {
+    console.log(key + " -> " + person[key])    
+}
+
+for (let key in person) {
+  console.log(key);          //object kyes
+  console.log(person[key]);  //object values
+}
+
+var j=0;
+while(j<list.length){
+  console.log(list[j]);
+  j++;
+}
+
+var i = 0;
+do {
+  console.log(list[i]);
+  i++;
+} 
+while (i<list.length){
+  console.log('end');
+};
+
+
+**************************** Date methods:*********************
+
+getFullYear()	Get the year as a four digit number (yyyy)
+getMonth()	Get the month as a number (0-11)
+getDate()	Get the day as a number (1-31)
+getHours()	Get the hour (0-23)
+getMinutes()	Get the minute (0-59)
+getSeconds()	Get the second (0-59)
+getMilliseconds()	Get the millisecond (0-999)
+getTime()	Get the time (milliseconds since January 1, 1970)
+getDay()	Get the weekday as a number (0-6)
+Date.now()	Get the time. ECMAScript 5.
+
+getUTCDate()	Same as getDate(), but returns the UTC date
+getUTCDay()	Same as getDay(), but returns the UTC day
+getUTCFullYear()	Same as getFullYear(), but returns the UTC year
+getUTCHours()	Same as getHours(), but returns the UTC hour
+getUTCMilliseconds()	Same as getMilliseconds(), but returns the UTC milliseconds
+getUTCMinutes()	Same as getMinutes(), but returns the UTC minutes
+getUTCMonth()	Same as getMonth(), but returns the UTC month
+getUTCSeconds()	Same as getSeconds(), but returns the UTC seconds
+
+var d = new Date();
+var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+document.getElementById("demo").innerHTML = months[d.getMonth()];
+
+
+
+**************************** Math funtins: ******************
+
+Math.round(4.7);    // returns 5
+Math.round(4.4);    // returns 4
+Math.random();      // returns a random number
+
+
+**************************** conditions statments:****************
+
+if
+if else
+switch
+
+switch (true) {
+  case 6:
+    text = "Today is Saturday";
+    break;
+  case 0:
+    text = "Today is Sunday";
+    break;
+  default:
+    text = "Looking forward to the Weekend";
+}
+
+
+un-conditions statments:
+comments
+break
+continue
+
+
+**************************** loops: ***************
+
+while
+for 
+do-while
+foreach
+for in
+for of
+
+
+*********************** functions: ***********************
+
+function sample(x) {
+  return x*20;
+}
+
+
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+let person1 = new Person();
+let person2 = new Person();
+
+Constructor functions are used to create objects in javascript.
+If we want to create multiple objects having similar properties and methods, constructor functions are used.
+Name of a constructor function should always be written in Pascal Notation: every word should start with a capital letter.
+
+
+*********************** Higher Order Functions in javascript: ***********************
+
+Functions that operate on other functions, either by taking them as arguments or by 
+returning them, are called higher-order functions.
+
+Means:
+funtion within another funtion:
+funtion returns funtion:
+funtion pass as param in funtion:
+
+function higherOrder(fn) {
+  fn();
+}
+
+function higherOrder2() {
+  return function() {
+    return "Do something";
+  }
+}
+var x = higherOrder2();
+X();
+
+
+*********************** class: from ES6 ***********************
+
+class Person {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+let person1 = new Person();  
+let person2 = new Person();
+
+Unlike functions, classes are not hoisted. A class cannot be used before it is declared.
+A class can inherit properties and methods from other classes by using the extend keyword.
+All the syntaxes inside the class must follow the strict mode(‘use strict’) of javascript.
+ Error will be thrown if the strict mode rules are not followed.
+
+
+********************* arrow funtions: **********************
+
+Arrow functions were introduced in ES6.
+Arrow functions allow us to write shorter function syntax and should not have any funtion name.
+it has lambda operator , left side of operator is funtion params and right side is expresstion stamtents.
+
+
+hello = () => {
+  return "Hello World!";
+}
+document.getElementById("demo").innerHTML = hello();
+
+
+**************************** events: ****************************
+
+onchange	An HTML element has been changed
+onclick		The user clicks an HTML element
+onmouseover	The user moves the mouse over an HTML element
+onmouseout	The user moves the mouse away from an HTML element
+onkeyup		The user up the a keyboard key
+onkeydown	The user pushes a keyboard key
+onkeypress	The user combination of up and push a keyboard key
+onload		The browser has finished loading the page
+
+
+
+************************ exception handling: *************
+
+try {
+  Block of code to try
+}
+catch(err) {
+  Block of code to handle errors
+}
+finally {
+  Block of code to be executed regardless of the try / catch result
+}
+
+
+
+
+******************************* this: *************************
+
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName; //this is object person
+  }
+};
+
+console.log(this); // here this is window object
+
+The silly way to understanding the this keyword is, whenever the function is invoked,
+check the object before the dot . The value of this . keyword will always be the object 
+before the dot .
+If there is no object before the dot like in example1, the value of this keyword will 
+be the global object.
+
+
+***************** ready vs load  ************************
+
+$(document).ready() 		//method will run once the page DOM is ready to execute JavaScript code.
+$(window).load()		//runs only once the entire page is ready (not only DOM).
+
+
+********************* security ********************************
+
+How to defend against the Persistent XSS attack?
+
+Defending against this attack can be done on the client side or server side.
+
+1.Client-side: The only way to defend this attack in client side is:
+
+Disable JavaScript within the browser
+         It may not be a suitable solution as many websites requires it to function appropriately. Therefore, use a safe, secure browser which is of the latest version and with XSS filters turned on. 
+
+ 
+
+2.Server-side: Some of the measures to defend in server side are:
+
+Sanitize all user input properly before storing it in the web server.
+
+Sanitize the static content before presenting to the end users.
+
+Use a web vulnerability scanner to detect XSS vulnerability in web applications on a regular basis.
+
+
+
+***************************** closure: *******************
+
+
+A closure is a function having access to the parent scope, even after the parent function has closed/returned.
+useful to create private variables or functions
+
+var add = (function () {
+  var counter = 0;
+  return function () {counter += 1; return counter}
+})();
+
+add();
+
+
+or 
+
+function OuterFunction() {
+
+    var outerVariable = 100;
+
+    function InnerFunction() {
+        alert(outerVariable);
+    }
+
+    return InnerFunction;
+}
+var innerFunc = OuterFunction();
+
+
+
+
+**************************** prototype: *************************
+
+All javascript objects inherit properties from a prototype.
+For example,
+
+Date objects inherit properties from the Date prototype
+Math objects inherit properties from the Math prototype
+Array objects inherit properties from the Array prototype.
+
+On top of the chain is Object.prototype. Every prototype inherits properties and methods from the Object.prototype
+
+In JavaScript, every function and object has a property named prototype by default
+by using this prototype we can add properties and methods to a constructor function.
+All JavaScript objects inherit properties and methods from a prototype.
+
+// constructor function
+function Person () {
+    this.name = 'John',
+    this.age = 23
+}
+
+// creating objects
+let person1 = new Person();
+let person2 = new Person();
+
+// adding property to constructor function
+Person.prototype.gender = 'male';
+
+// prototype value of Person
+console.log(Person.prototype);
+
+// inheriting the property from prototype
+console.log(person1.gender);
+console.log(person2.gender);
+
+o/p:
+{ gender: "male" }
+male
+male
+In the above program, we have added a new property gender to the Person constructor function using:
+
+Person.prototype.gender = 'male';
+Then object person1 and person2 inherits the property gender from the prototype property of Person constructor function.
+
+
+
+******************************** Hoisting:  **************
+
+it is JavaScript's default behavior of moving all declarations to the top of the current scope
+Variable initializations are not hoisted, only variable declarations are hoisted
+
+******************************** ES5 VS ES6:******************
+ES5;
+ES5 is the fifth edition of the ECMAScript
+It was introduced in 2009.
+ES5 supports primitive data types that are string, number, boolean, null, and undefined.
+we could only define the variables by using the var keyword.
+it has a lower performance than ES6.
+ES5 is time-consuming than ES6 for Object manipulation.
+There is a use of for loop to iterate over elements.
+No OOPS concepts, they had prototype inheritance
+
+ES6:
+ES6 is the sixth edition of the ECMAScript
+there are some additions to JavaScript data types.
+There are two new ways to define variables that are let and const.
+ES6 has a higher performance than ES5.
+arrow functions :
+for...of        :    to perform an iteration over the values of the iterable objects.
+classes         :    to help us organize our code in a better wa
+inheritance     :  in ES6 version
+find() and findIndex() : 
+sets and maps.
+Spread operator (…)   like var obj3 = { ...obj1, a:20 };
+rest(...) parameters  like var obj3 = fun(a,..args[])
+Template Literal (`)  like const newVariable = `something ${myVariable}`;
+different way for import and export modules.
+ES6 introduced the promises that allow you to write asynchronous code in more manageable ways.
+
+
+ECMAScript 7(2016):
+Array.prototype.includes()
+Exponentiation operator
+
+ECMAScript 8(2017):
+Async Functions (Brian Terlson)
+Shared memory and atomics (Lars T. Hansen)
+
+
+ECMAScript 9(2018):
+Asynchronous Iteration (Domenic Denicola, Kevin Smith)
+Rest/Spread Properties (Sebastian Markbåge)
+
+
+********************* map and set ********************************
+
+Now we’ve learned about the following complex data structures:
+Objects for storing keyed collections.
+Arrays for storing ordered collections.
+But that’s not enough for real life. That’s why Map and Set also exist.
+
+Map is a collection of keyed data items, just like an Object. 
+But the main difference is that Map allows keys of any type.
+Methods and properties are:
+
+new Map() – creates the map.
+map.set(key, value) – stores the value by the key.
+map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+map.has(key) – returns true if the key exists, false otherwise.
+map.delete(key) – removes the value by the key.
+map.clear() – removes everything from the map.
+map.size – returns the current element count.
+
+
+let map = new Map();
+map.set('1', 'str1');   // a string key
+map.set(1, 'num1');     // a numeric key
+map.set(true, 'bool1'); // a boolean key
+
+
+********************* call(), applay(), bind() ********************************
+
+so this behaves differently accoring to scopp,
+if funtion scope it referes to funtion object
+if in document scope it refres to window object 
+
+
+solution to thet problem is:
+Call/apply are call the function immediately, whereas bind returns a function and later executed,
+
+Call invokes the function with attaches this into function and allows you to pass in arguments one by one.
+Apply invokes the function with attaches this into function and allows you to pass in arguments as an array.
+Bind returns a new function, allowing you to pass in a this array and any number of arguments
+
+“this” keyword is the owner object,
+
+call:
+var person = {  
+  name: "James Smith",
+  hello: function(thing,thing2) {
+    console.log(this.name + " says hello " + thing + thing2);
+  }
+}
+
+person.hello("world");  // output: "James Smith says hello world world2"
+person.hello.call({ name: "Jim Smith" }, "world","world2"); // output: "Jim Smith says hello world world2"
+
+apply:
+var person = {  
+  name: "James Smith",
+  hello: function(thing,thing2) {
+    console.log(this.name + " says hello " + thing);
+  }
+}
+
+person.hello("world");  // output: "James Smith says hello world world2"
+person.hello.call({ name: "Jim Smith" }, ["world","world2"]); // output: "Jim Smith says hello world world2"
+
+
+bind:
+var person = {  
+  name: "James Smith",
+  hello: function(thing) {
+    console.log(this.name + " says hello " + thing);
+  }
+}
+var helloFunc = person.hello.bind({ name: "Jim Smith" }, "world");
+helloFunc();  // output: Jim Smith says hello world"
+
+
+******************************* callback ***************************
+
+In JavaScript, a callback is a function passed into another function as an argument to be executed later
+Callback functions can be synchronous or asynchronous.
+
+let oddNumbers = numbers.filter(function(number) {
+    return number % 2;
+});
+console.log(oddNumbers); // [ 1, 7, 3, 5 ]
+
+in ES6:
+let oddNumbers = numbers.filter(number => number % 2);
+
+
+
+********************************* promice ****************************
+
+A promise is an object that returns a value in the future.
+or 
+promise is stream where we can pass 1  evant at time and evnt is not cancelable.
+
+A promise has three states: pending, fulfilled, rejected
+A promise starts in the pending state and ends in either fulfilled state or rejected state.
+
+Consuming a Promise: then, catch, finally
+if promise is fullfiled then  then() method executed , if the promise is rejected the catch() method invoked .
+Place the code that you want to execute in the finally() method whether the promise is fulfilled or rejected.
+
+let completed = true;
+
+let learnJS = new Promise(function (resolve, reject) {
+    if (completed) {
+        resolve("I have completed learning JS.");
+    } else {
+        reject("I haven't completed learning JS yet.");
+    }
+});
+
+
+let learnJS = makePromise(true);
+
+learnJS
+    .then(success => console.log(success))
+    .catch(reason => console.log(reason))
+    .finally(() => createApp());
+
+
+****************************** async and await ********************************
+
+The async keyword allows you to define a function that handles asynchronous operations.
+To define an async function, you place the async keyword in front of the function keyword as follows:
+
+async function sayHi() {
+    return 'Hi';
+}
+
+
+You use the await keyword to wait for a Promise to settle either in resolved or rejected state. And you can use the await keyword only inside an async function:
+async function display() {
+    let result = await sayHi();
+    console.log(result);
+}
+In this example, the await keyword instructs JavaScript engine to wait for the sayHi() function to complete before displaying the message.
+
+If a promise resolves, the await promise returns the result. However, when the promise rejects, the await promise will throw an erro
+You can catch the error by using the try...catch statement
+
+async function getUser(userId) {
+    try {
+       const user = await Promise.reject(new Error('Invalid User Id'));
+    } catch(error) {
+       console.log(error);
+    }
+}
+
+
+
+*************************** spread vs rest ***************************
+
+Rest parameter is used in function declaration whereas the spread operator is used in function calls.
+Rest parameter is used to take a variable number of arguments and turns into an array while the spread operator takes an array or an object and spreads it
+
+rest:Rest Parameter is collecting all remaining elements into an array .
+function sum( first, ...others ) {
+    for ( var i = 0; i < others.length; i++ )
+        first += others[i];
+    return first;
+}
+console.log(sum(1,2,3,4))// sum(1, 2, 3, 4) == 10;
+
+
+spread: It’s the opposite to rest parameter , where rest parameter collects items into an array, 
+the spread operator unpacks the collected elements into single elements.
+
+var abc = ['a', 'b', 'c'];
+var def = ['d', 'e', 'f'];
+var alpha = [ ...abc, ...def ];
+console.log(alpha)// alpha == ['a', 'b', 'c', 'd', 'e', 'f']
+
+
+
+******** how to check particular value present in array in javascript
+
+using includes method which returns true if exist other wise false
+
+******** how to check particular key present in object in javascript
+
+hasOwnProperty() method
+in operator
+
+
+
+*************Explain Implicit Type Coercion in javascript.***************
+
+Implicit type coercion in javascript is automatic conversion of value from one data type to another.
+ It takes place when the operands of an expression are of different data types
+
+var x = 3;
+Var y = "3";
+x - y     // 0
+
+
+**********Is javascript a statically typed or a dynamically typed language?**************
+
+JavaScript is a dynamically typed language. In a dynamically typed language, the type of a variable 
+is checked during run-time in contrast to statically typed language, where the type of a variable 
+is checked during compile-time.
+
+
+
+**************** What is the difference between ViewState and SessionState?******************
+
+'ViewState' is specific to a page in a session.
+
+'SessionState' is specific to user specific data that can be accessed across all pages in the web application.
+
+
+
+***************What are all the types of Pop up boxes available in JavaScript?*************
+
+Alert
+Confirm and
+Prompt
+
+
+****************** What are JavaScript Cookies? ***************
+
+Cookies are the small test files stored in a computer and it gets created when the user 
+visits the websites to store information that they need. Example could be User Name details 
+and shopping cart information from the previous visits.
+
+
+*************** *What is break and continue statements?**********************
+
+Break statement exits from the current loop.
+Continue statement continues with next statement of the loop.
+
+
+*******************How to find operating system in the client machine using JavaScript?******************
+
+The 'Navigator.appversion' is used to find the name of the operating system in the client machine.
+
+
+ ***************Is JavaScript case sensitive? Give an example?***********************
+
+Yes, JavaScript is case sensitive. For example, a function parseInt is not same as the function Parseint.
+
+
+*********************************event bubbling?************************
+
+JavaScript allows DOM elements to be nested inside each other. In such a case, 
+if the handler of the child is clicked, the handler of parent will also work as 
+if it were clicked too.
+
+
+********************Does JavaScript support automatic type conversion?***********************
+
+Yes JavaScript does support automatic type conversion, it is the common way of type conversion used by JavaScript developers
+
+
+************What is the use of window object?**********************
+
+The window object is created automatically by the browser that represents a window of a browser. It is not an object of JavaScript. It is a browser object.
+The window object is used to display the popup dialog box. Let's see with description.
+alert(),confirm(), prompt(),open(), close()
+
+
+********************how many ways can create object *************
+
+
+By object literal
+By creating instance of Object directly (using new keyword)
+By using an object constructor (using new keyword)
+
+emp={id:102,name:"Shyam Kumar",salary:40000}  
+var objectname=new Object();
+e=new emp(103,"Vimal Jaiswal",30000);  
+
+
+********************What is the role of a strict mode in JavaScript?***************
+
+The JavaScript strict mode is used to generates silent errors. It provides "use strict"; expression to enable the strict mode. This expression can only be placed as the first statement in a script or a function. For example:
+
+"use strict";    
+x=10;    
+console.log(x)
+
+
+********************setTimeout, setInterval and clearInterval.**********************
+
+The setTimeout(function, delay) function is used to start a timer that calls a particular function after the mentioned delay. 
+The setInterval(function, delay) function is used to repeatedly execute the given function in the mentioned delay and only halts when cancelled.
+The clearInterval(id) function instructs the timer to stop.
+
+
+************** MOST IMPORTAMANT LINK *****************************
+
+https://www.interviewbit.com/javascript-interview-questions/#javascript-hoisting

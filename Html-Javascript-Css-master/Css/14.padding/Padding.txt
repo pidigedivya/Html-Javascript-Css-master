@@ -1,0 +1,36 @@
+Definition and Usage
+An element's padding is the space between its content and its border.
+
+The padding property is a shorthand property for:
+
+ padding-top
+padding-right
+padding-bottom
+padding-left
+Note: Padding creates extra space within an element, while margin creates extra space around an element.
+
+This property can have from one to four values.
+
+If the padding property has four values:
+
+padding:10px 5px 15px 20px;
+top padding is 10px
+right padding is 5px
+bottom padding is 15px
+left padding is 20px
+If the padding property has three values:
+
+padding:10px 5px 15px;
+top padding is 10px
+right and left padding are 5px
+bottom padding is 15px
+If the padding property has two values:
+
+padding:10px 5px;
+top and bottom padding are 10px
+right and left padding are 5px
+If the padding property has one value:
+
+padding:10px;
+all four paddings are 10px
+Note: Negative values are not allowed.

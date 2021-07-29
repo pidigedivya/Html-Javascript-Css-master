@@ -1,0 +1,58 @@
+1 looping array----------------------
+
+let list = [4, 5, 6];
+
+list.forEach((value, index, array)=>{
+console.log(value)
+});
+
+
+for (let i in list) {
+   console.log(i); 
+}
+
+
+
+for (let i of list) {
+   console.log(i); 
+}
+
+
+
+var j=0;
+while(j<list.length){
+  console.log(list[j]);
+  j++;
+}
+
+
+var i = 0;
+do {
+  console.log(list[i]);
+  i++;
+} 
+while (i<list.length){
+  console.log('end');
+};
+
+
+
+for(let i=0;i<list.length;i++){
+    console.log(list[i]);
+}
+
+2 looping object ----------------------
+
+var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+
+for (var key of Object.keys(person)) {
+    console.log(key + " -> " + person[key])    
+}
+
+for (let key in person) {
+  console.log(key);          
+  console.log(person[key]);  
+}
+
+
+

@@ -1,0 +1,86 @@
+1-------------arrow funtion
+es5:
+
+function greetings (name) {
+ return 'hello ' + name
+}
+
+es6:
+
+const greetings = (name) => {
+ return `hello ${name}`;
+}
+
+
+2-----------merge two objects
+
+es5
+
+var obj1 = { a: 1, b: 2 }
+var obj2 = { a: 2, c: 3, d: 4}
+var obj3 = Object.assign(obj1, obj2)
+
+es6:
+
+const obj1 = { a: 1, b: 2 }
+const obj2 = { a: 2, c: 3, d: 4}
+const obj3 = {...obj1, ...obj2}
+
+
+3--------------object destructuring 
+
+es5:
+
+var obj1 = { a: 1, b: 2, c: 3, d: 4 }
+var a = obj1.a
+var b = obj1.b
+var c = obj1.c
+var d = obj1.d
+
+es6:
+
+const obj1 = { a: 1, b: 2, c: 3, d: 4 }
+const {
+  a,
+  b,
+  c,
+  d
+} = obj1
+
+
+4------------------define a object
+
+es5:
+
+var a = 1
+var b = 2
+var c = 3
+var d = 4
+var obj1 = { a: a, b: b, c: c, d: d }
+
+
+es6:
+
+var a = 1
+var b = 2
+var c = 3
+var d = 4
+var obj1 = { a, b, c, d }
+
+
+
+5-------------------Exporting & Importing Modules
+
+es5: export:
+var myModule = { x: 1, y: function(){ console.log('This is ES5') }}
+module.exports = myModule;
+
+es6: export:
+const myModule = { x: 1, y: () => { console.log('This is ES5') }}
+export default myModule;
+
+es5: import:
+var myModule = require('./myModule');
+
+es6: import:
+import myModule from './myModule';

@@ -1,0 +1,67 @@
+1--------------
+
+var counter = 0;
+function add() {
+  counter += 1;
+}
+
+add();
+add();
+add();
+console.log(counter);
+
+
+
+
+2-------------
+
+
+var counter = 0;
+function add() {
+  var counter = 0; 
+  counter += 1;
+}
+
+add();
+add();
+add();
+console.log(counter);
+
+
+
+3------------------
+
+function add() {
+  var counter = 0;
+  counter += 1;
+  return counter;
+}
+
+console.log(add());
+
+
+4------------------------
+let points = 50;
+let points = 60;
+
+
+
+5-------------------
+
+let points = 50;
+let winner = false;
+if(points > 40) {
+  let winner = true;
+}
+console.log(winner); 
+
+
+6--------------------
+
+var points = 50;
+var winner = false;
+if(points > 40) {
+  var winner = true;
+}
+console.log(winner);
+

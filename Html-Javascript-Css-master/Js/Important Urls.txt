@@ -1,0 +1,6 @@
+httpsjavascript.info
+https://www.javascripttutorial.net/
+https://medium.com/@josephcardillo/the-difference-between-var-let-and-const-in-javascript-part-2-60fa568d0a0
+
+IMPOERTANT:
+https://www.interviewbit.com/javascript-interview-questions/#javascript-hoisting

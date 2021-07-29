@@ -1,0 +1,5 @@
+RGBA( Red, Green, Blue, Alpha). Apart from red, green and blue, there is a new value alpha.
+
+Ex: RGBA(0,255,0,0.7);
+
+ 
